@@ -88,8 +88,7 @@ namespace DomainNameResolver.Core
                     result = GetDomainName(data, ref position);
                     break;
                 case QueryType.TXT:
-                    // TODO not sure of the format
-                    result = Encoding.ASCII.GetString(data, position, length);
+                    result = data.ReadString(ref position);
                     break;
                 default:
                     throw new NotImplementedException();
